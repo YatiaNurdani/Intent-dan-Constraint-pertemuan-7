@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         Fragment fragment = null;
         switch (menuItem.getItemId()){
             case R.id.navigation_home:
-                fragment = new DashboardFragment();
+                fragment = new HomeFragment();
                 break;
             case R.id.navigation_dashboard:
                 fragment = new DashboardFragment();

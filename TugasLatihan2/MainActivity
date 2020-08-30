@@ -1,0 +1,48 @@
+package com.example.fungsiintent;
+
+import androidx.appcompat.app.AppCompatActivity;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import android.os.Bundle;
+import android.widget.Button;
+
+public class MainActivity extends AppCompatActivity implements View.OnClickListener{
+    Button btnpgl;
+    Button btnbuka;
+    Button btninfo;
+    @Override
+    protected void onCreate(Bundle savedInstanceState){
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
+        btnpgl = (Button)findViewById(R.id.btnpgl);
+        btnpgl.setOnClickListener(this);
+        btnbuka = (Button)findViewById(R.id.btnbuka);
+        btnbuka.setOnClickListener(this);
+        btninfo = (Button)findViewById(R.id.btninfo);
+        btninfo.setOnClickListener(this);
+
+    }
+
+    @Override
+    public void onClick(View v){
+    switch (v.getId()){
+        case R.id.btnpgl:
+        String nomor = "085156270985" ;
+        Intent bntpgl = new Intent(Intent.ACTION_DIAL);
+        bntpgl.setData(Uri.fromParts("tel", nomor, null));
+        startActivity(bntpgl);
+        break;
+        case R.id.btnbuka:
+        Intent buka = new Intent(Intent.ACTION_VIEW, Uri.parse("http://ifg4techno.blogspot.com"));
+        startActivity(buka);
+        break;
+        case R.id.btninfo:
+        Intent tentang = new Intent(MainActivity.this, Main2Activity.class);
+        startActivity(tentang);
+        break;
+        default:
+            break;
+    }
+    }
+}
